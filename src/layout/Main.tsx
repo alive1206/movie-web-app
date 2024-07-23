@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 
 type Props = {
@@ -10,7 +11,10 @@ export const Main: React.FC<Props> = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <div>{children}</div>
+      <div className="bg-[#1a1a1a] min-h-[calc(100vh-76px-209px)] py-6 px-2">
+        {children}
+      </div>
+      <Footer />
     </div>
   );
 };

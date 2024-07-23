@@ -1,0 +1,47 @@
+.ant-input::placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.ant-input:focus-within::placeholder {
+  opacity: 0.5;
+}
+
+.ant-input-filled:focus-within {
+  color: #ffffff;
+  background: #414144 !important;
+  border-color: #414144;
+}
+
+figure:hover img {
+  transform: scale(1.2);
+}
+
+.poster-container:hover img {
+  transform: scale(1.2);
+}
+
+.ant-pagination-item-link,
+.ant-pagination-item a {
+  color: #fff !important;
+}
+
+.ant-pagination-item-active {
+  background-color: #1773e9 !important;
+  border-color: #1773e9 !important;
+}
+
+.ant-pagination-item:hover {
+  background-color: #1773e9 !important;
+  border-color: #1773e9 !important;
+}
+
+.ant-pagination-options-quick-jumper {
+  color: #ffffff;
+}
+
+.ant-pagination-options-quick-jumper input {
+  background: #414144 !important;
+  color: #ffffff !important;
+  border-color: #414144 !important;
+}
