@@ -1,19 +1,23 @@
 import { formattedDate } from "@/utils";
-import { PlayCircleFilled, PlayCircleTwoTone } from "@ant-design/icons";
+import {
+  InfoCircleOutlined,
+  PlayCircleFilled,
+  PlayCircleTwoTone,
+} from "@ant-design/icons";
 import { Button, Carousel } from "antd";
 import { forEach, map } from "lodash";
 import Link from "next/link";
 import { useState } from "react";
 
 type Props = {
-  phimMoi: any;
+  phimTop: any;
 };
 
-export const BannerHome: React.FC<Props> = ({ phimMoi }) => {
+export const BannerHome: React.FC<Props> = ({ phimTop }) => {
   const [showPlay, setShowPlay] = useState<any>(
-    Array(phimMoi.length).fill(false)
+    Array(phimTop.length).fill(false)
   );
-  console.log(phimMoi);
+  console.log(phimTop);
   const carouselConfig = {
     infinite: true,
     slidesToShow: 2,
@@ -54,7 +58,7 @@ export const BannerHome: React.FC<Props> = ({ phimMoi }) => {
         </h3>
       </div>
       <Carousel {...carouselConfig}>
-        {map(phimMoi, (movie, index) => (
+        {map(phimTop, (movie, index) => (
           <div key={index} className="h-96">
             <div className="flex h-[90%] justify-center">
               <Link
@@ -81,9 +85,9 @@ export const BannerHome: React.FC<Props> = ({ phimMoi }) => {
                 title={movie?.name}
               >
                 <img
-                  className="object-cover h-full w-[250px] duration-500 transition-all transform-translate rounded-[3px]"
+                  className="object-center object-cover h-full w-[250px] duration-500 transition-all transform-translate rounded-[3px]"
                   src={`${movie?.thumb_url}`}
-                  alt="poster"
+                  alt={`${movie?.name}`}
                 />
                 {showPlay[index] ? (
                   <PlayCircleTwoTone
@@ -151,10 +155,34 @@ export const BannerHome: React.FC<Props> = ({ phimMoi }) => {
                         ? `/watch/${movie?.slug}?tap=full`
                         : `/watch/${movie?.slug}?tap=1`
                     }
+                    className="px-3 py-5"
+                    icon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                        ></path>
+                      </svg>
+                    }
+                    iconPosition="start"
                   >
                     Xem phim
                   </Button>
-                  <Button href={`/detail/${movie?.slug}`} type="default">
+                  <Button
+                    href={`/detail/${movie?.slug}`}
+                    type="default"
+                    className="px-3 py-5"
+                    icon={<InfoCircleOutlined />}
+                    iconPosition="start"
+                  >
                     Thông tin chi tiết
                   </Button>
                 </div>

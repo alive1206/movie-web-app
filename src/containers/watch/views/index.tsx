@@ -27,24 +27,23 @@ type Movie = {
 };
 
 type Props = {
-  chiTietPhim: Movie;
+  movieDetail: Movie;
   episode: any;
 };
 
-export const Watch: React.FC<Props> = ({ chiTietPhim, episode }) => {
+export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
   const [currentEpisode, setCurrentEpisode] = useState<any>("full");
   const [loading, setLoading] = useState(true);
-  // console.log(">>>>tap", episode);
-  // console.log(chiTietPhim.episodes[0]);
+
   useEffect(() => {
     if (episode !== "full") {
-      const tempEpisode = chiTietPhim?.episodes[0]?.items.find(
+      const tempEpisode = movieDetail?.episodes[0]?.items.find(
         (item: any) => parseInt(item.name) === episode
       );
       setCurrentEpisode(tempEpisode);
       setLoading(false);
     } else {
-      const tempEpisode = chiTietPhim?.episodes[0]?.items.find(
+      const tempEpisode = movieDetail?.episodes[0]?.items.find(
         (item: any) => item.name.toLowerCase() === episode
       );
       console.log(tempEpisode);
@@ -63,7 +62,7 @@ export const Watch: React.FC<Props> = ({ chiTietPhim, episode }) => {
               <iframe
                 title={`tap-${episode}`}
                 src={
-                  isEmpty(chiTietPhim?.episodes[0]?.items)
+                  isEmpty(movieDetail?.episodes[0]?.items)
                     ? ""
                     : `${currentEpisode?.embed}`
                 }
@@ -76,18 +75,20 @@ export const Watch: React.FC<Props> = ({ chiTietPhim, episode }) => {
         <div className="bg-[#222222] p-4 mt-3">
           <h3 className="text-white mb-3 uppercase">Danh sách tập</h3>
 
-          {!chiTietPhim?.episodes[0]?.items ||
-          chiTietPhim?.episodes[0]?.items.length === 0 ? (
+          {!movieDetail?.episodes[0]?.items ||
+          movieDetail?.episodes[0]?.items.length === 0 ? (
             <div className="flex justify-center">
               <EmptyScreen description="Hiện tại chưa có tập phim nào để phát" />
             </div>
           ) : (
-            <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory">
-              {map(chiTietPhim?.episodes[0]?.items, (episode, index) => (
+            <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory max-md:justify-center max-md:max-h-[250px]">
+              {map(movieDetail?.episodes[0]?.items, (episode, index) => (
                 <Link
                   key={index}
-                  href={`/watch/${chiTietPhim.slug}?tap=${episode.name}`}
-                  className="no-underline text-white"
+                  href={`/watch/${
+                    movieDetail.slug
+                  }?tap=${episode.name.toLowerCase()}`}
+                  className="no-underline text-white hover:opacity-70"
                 >
                   <div className="bg-[#e74c3c] rounded px-5 py-1 text-center w-[100px]">
                     {episode.name}

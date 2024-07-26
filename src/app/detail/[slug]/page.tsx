@@ -1,21 +1,12 @@
-import { Watch } from "@/containers";
+import { Detail } from "@/containers";
 import axios from "axios";
 
-export default async function WatchScreen({
+export default async function DetailScreen({
   params,
-  searchParams,
 }: {
   params: { slug: string };
-  searchParams: { [key: string]: string };
 }) {
   const { slug } = params;
-  const episode =
-    searchParams?.tap === "full"
-      ? "full"
-      : searchParams?.tap
-      ? parseInt(searchParams.tap)
-      : 1;
-
   const getMovieDetail = async () => {
     try {
       const res = await axios.get(`https://phim.nguonc.com/api/film/${slug}`);
@@ -27,6 +18,6 @@ export default async function WatchScreen({
   };
 
   const movieDetail = await getMovieDetail();
-
-  return <Watch movieDetail={movieDetail?.movie} episode={episode} />;
+  console.log(movieDetail.movie);
+  return <Detail movieDetail={movieDetail?.movie} />;
 }

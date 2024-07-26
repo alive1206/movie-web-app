@@ -76,12 +76,8 @@ export const LatestHome: React.FC<Props> = ({ phimMoi }) => {
           {map(phimMoi, (movie, index) => (
             <Link
               key={index}
-              className="snap-center cursor-pointer w-[200px] relative  z-0 text-white no-underline bg-[#181818] rounded-2xl"
-              href={
-                movie?.current_episode.toLowerCase() === "full"
-                  ? `/watch/${movie?.slug}?tap=full`
-                  : `/watch/${movie?.slug}?tap=1`
-              }
+              className="snap-center cursor-pointer w-[200px] relative  z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
+              href={`/detail/${movie?.slug}`}
               title={movie?.name}
             >
               <figure
@@ -102,9 +98,9 @@ export const LatestHome: React.FC<Props> = ({ phimMoi }) => {
                 }}
               >
                 <img
-                  className="w-full h-full object-cover duration-500 transition-all transform-translate"
+                  className="w-full h-full object-center object-cover duration-500 transition-all transform-translate"
                   src={`${movie?.thumb_url}`}
-                  alt="poster"
+                  alt={`${movie?.name}`}
                 />
                 <div className="absolute top-6">
                   <div className="bg-[#A3765D] rounded-r-md px-3 text-white text-sm font-medium shadow-lg">

@@ -11,7 +11,7 @@ export const Main: React.FC<Props> = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <div className="bg-[#1a1a1a] min-h-[calc(100vh-76px-209px)] py-6 px-2">
+      <div className="bg-[#1a1a1a] min-h-[calc(100vh-80px-209px)] py-6 px-2">
         {children}
       </div>
       <Footer />
