@@ -10,41 +10,10 @@ import "../styles/search.css";
 import Link from "next/link";
 
 import { useSearchParams, useRouter } from "next/navigation";
-
-type Paginate = {
-  current_page: number;
-  total_page: number;
-  total_items: number;
-  items_per_page: number;
-};
-
-type Item = {
-  id: string;
-  name: string;
-  slug: string;
-  original_name: string;
-  thumb_url: string;
-  poster_url: string;
-  created: string;
-  modified: string;
-  description: string;
-  total_episodes: number;
-  current_episode: string;
-  time: string;
-  quality: string;
-  language: string;
-  director: string;
-  casts: string;
-};
-
-type Movies = {
-  status: string;
-  paginate: Paginate;
-  items: Item[];
-};
+import { Movie } from "@/types";
 
 type Props = {
-  movies: Movies;
+  movies: Movie;
 };
 
 type SearchProps = GetProps<typeof Input.Search>;

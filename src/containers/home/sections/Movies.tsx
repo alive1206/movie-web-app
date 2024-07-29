@@ -11,13 +11,13 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 type Props = {
-  phimMoi: any;
+  phimLe: any;
 };
 
-export const LatestHome: React.FC<Props> = ({ phimMoi }) => {
-  // console.log(phimMoi);
+export const Movies: React.FC<Props> = ({ phimLe }) => {
+  // console.log(phimLe);
   const [showPlay, setShowPlay] = useState<any>(
-    Array(phimMoi.length).fill(false)
+    Array(phimLe.length).fill(false)
   );
   const [showButton, setShowButton] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +37,7 @@ export const LatestHome: React.FC<Props> = ({ phimMoi }) => {
     <div className="text-[#fff]">
       <div>
         <h3 className="uppercase text-lg border-l-[3px] pl-2 border-[#A3765D] mb-3">
-          Phim mới cập nhật
+          Phim Lẻ
         </h3>
       </div>
       <div
@@ -73,7 +73,7 @@ export const LatestHome: React.FC<Props> = ({ phimMoi }) => {
           ref={containerRef}
           style={{ scrollBehavior: "smooth" }}
         >
-          {map(phimMoi, (movie, index) => (
+          {map(phimLe, (movie, index) => (
             <Link
               key={index}
               className="snap-center cursor-pointer min-w-[200px] relative  z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"

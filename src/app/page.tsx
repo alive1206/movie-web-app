@@ -26,8 +26,55 @@ export default async function HomeScreen() {
     }
   };
 
-  const phimMoi = await getPhimMoiCapNhat();
-  const phimTop = await getPhimThinhHanh();
+  const getPhimLe = async () => {
+    try {
+      const res = await axios.get(
+        "https://phim.nguonc.com/api/films/danh-sach/phim-le?page=1"
+      );
 
-  return <Home phimMoi={phimMoi} phimTop={phimTop} />;
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getPhimBo = async () => {
+    try {
+      const res = await axios.get(
+        "https://phim.nguonc.com/api/films/danh-sach/phim-bo?page=1"
+      );
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getTvShows = async () => {
+    try {
+      const res = await axios.get(
+        "https://phim.nguonc.com/api/films/danh-sach/tv-shows?page=1"
+      );
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const phimTop = await getPhimThinhHanh();
+  const phimMoi = await getPhimMoiCapNhat();
+  const phimLe = await getPhimLe();
+  const phimBo = await getPhimBo();
+  const tvShows = await getTvShows();
+
+  return (
+    <Home
+      phimMoi={phimMoi}
+      phimTop={phimTop}
+      phimLe={phimLe}
+      phimBo={phimBo}
+      tvShows={tvShows}
+    />
+  );
 }

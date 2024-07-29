@@ -37,7 +37,7 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
   const [genre, setGenre] = useState<any>([]);
   const [activeTab, setActiveTab] = useState(0);
   const tabCSS =
-    "text-white bg-zinc-800 cursor-pointer text-xs font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
+    "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
 
   useEffect(() => {
     const categoryKeys = Object.keys(movieDetail.category);
@@ -59,14 +59,14 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
       <div className="container ">
         <div className="flex text-white max-md:flex-col max-md:items-center">
           <div className="w-[70%]">
-            <div className="flex gap-3 bg-[#222222] p-3 rounded-sm max-md:flex-col max-md:items-center">
-              <div className="h-auto w-[250px]">
+            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col max-md:items-center">
+              <div className="max-h-auto w-[350px]">
                 <img
                   className="object-cover rounded-md w-full h-full object-center"
                   src={`${movieDetail?.thumb_url}`}
                 />
               </div>
-              <div className="grid grid-rows-2 gap-3 max-w-[450px] max-md:flex max-md:flex-col">
+              <div className="grid grid-rows-2 gap-3 w-full max-md:flex max-md:flex-col">
                 <div>
                   <div className="uppercase font-bold text-xl">
                     {movieDetail?.name}
@@ -82,7 +82,7 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
                     <span className="text-zinc-500">Thời lượng: </span>
                     {movieDetail?.total_episodes} Tập
                   </div>
-                  <div className="font-medium px-2 py-1 bg-[#A3765D] text-[14px] inline-block mt-2 mb-2">
+                  <div className="font-medium px-2 py-1 bg-[#A3765D] text-[14px] inline-block mt-2 mb-2 rounded-sm">
                     {movieDetail?.current_episode} {movieDetail?.language}
                   </div>
                   <div>
@@ -99,7 +99,7 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
                         ? `/watch/${movieDetail?.slug}?tap=full`
                         : `/watch/${movieDetail?.slug}?tap=1`
                     }
-                    className="no-underline px-3 py-5 font-medium"
+                    className="no-underline px-3 py-5 font-medium gap-[4px]"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -195,20 +195,27 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
                 {activeTab === 1 ? (
                   <div className="">
                     <span className="uppercase text-zinc-100">Tóm tắt</span>
-                    <div className="text-gray-400 mt-3">
-                      {movieDetail?.description}
-                    </div>
+                    <div
+                      className="text-gray-400 mt-3"
+                      dangerouslySetInnerHTML={{
+                        __html: movieDetail?.description || "",
+                      }}
+                    ></div>
                   </div>
                 ) : (
                   <></>
                 )}
                 {activeTab === 2 ? (
-                  <div className="">
+                  <>
+                    <span className="uppercase text-zinc-100">Director</span>
+                    <div className="text-gray-400 mt-3 mb-3 border-b border-zinc-700 pb-1">
+                      {movieDetail?.director}
+                    </div>
                     <span className="uppercase text-zinc-100">Diễn viên</span>
                     <div className="text-gray-400 mt-3">
                       {movieDetail?.casts}
                     </div>
-                  </div>
+                  </>
                 ) : (
                   <></>
                 )}
