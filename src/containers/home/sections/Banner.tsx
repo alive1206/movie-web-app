@@ -5,7 +5,7 @@ import {
   PlayCircleTwoTone,
 } from "@ant-design/icons";
 import { Button, Carousel } from "antd";
-import { forEach, map } from "lodash";
+import { map } from "lodash";
 import Link from "next/link";
 import { useState } from "react";
 

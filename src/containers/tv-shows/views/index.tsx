@@ -1,9 +1,6 @@
 "use client";
 
 import { InfiniteScroll } from "@/components";
-import { Movie } from "@/types";
-import { LoadingOutlined } from "@ant-design/icons";
-import { Space, Spin } from "antd";
 import axios from "axios";
 import { map } from "lodash";
 import Link from "next/link";

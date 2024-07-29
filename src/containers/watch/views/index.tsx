@@ -4,7 +4,7 @@ import { EmptyScreen } from "@/components";
 import { Spin } from "antd";
 import { isEmpty, map } from "lodash";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Movie = {
   id: string;

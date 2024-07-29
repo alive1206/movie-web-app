@@ -6,7 +6,7 @@ import { map } from "lodash";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "../styles/detail.css";
-import { PlayCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 
 type Movie = {
   id: string;

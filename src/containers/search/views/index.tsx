@@ -3,7 +3,6 @@
 import { EmptyScreen } from "@/components";
 import { SearchOutlined } from "@ant-design/icons";
 import { GetProps, Input, Pagination } from "antd";
-import axios from "axios";
 import { map } from "lodash";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "../styles/search.css";

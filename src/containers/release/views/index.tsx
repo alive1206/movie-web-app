@@ -1,7 +1,6 @@
 "use client";
 
 import { InfiniteScroll, Year } from "@/components";
-
 import axios from "axios";
 import { map } from "lodash";
 import Link from "next/link";
