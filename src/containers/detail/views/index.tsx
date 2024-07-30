@@ -61,8 +61,8 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
       <div className="container ">
         <div className="flex text-white max-md:flex-col gap-3 max-md:items-center">
           <div className="w-[70%]">
-            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col  max-md:items-center">
-              <div className="max-h-auto max-w-[350px]">
+            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col max-md:items-center">
+              <div className="max-h-auto w-[50%] max-[992px]:w-[70%] max-md:w-full">
                 <img
                   className="object-cover rounded-md w-full h-full object-center"
                   src={`${movieDetail?.thumb_url}`}
@@ -234,7 +234,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
               {map(phimThinhHanh.items.slice(0, 5), (movie, index) => (
                 <Link
                   key={index}
-                  className="cursor-pointer w-[90%] text-gray-300 no-underline bg-[#181818] rounded-md flex gap-3 p-3"
+                  className="cursor-pointer w-[90%] max-md:w-full text-gray-300 no-underline bg-[#181818] rounded-md flex gap-3 p-3"
                   href={`/detail/${movie?.slug}`}
                   title={movie?.name}
                 >
