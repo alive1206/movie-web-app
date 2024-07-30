@@ -24,6 +24,7 @@ export const Navbar: React.FC<Props> = () => {
         !navbarRef.current.contains(event.target as Node)
       ) {
         setActiveMenu(0);
+        setToggle(false);
       }
     };
 
