@@ -8,8 +8,9 @@ export default async function SearchScreen({
 }) {
   const getMovies = async (keyword: string, page: number = 1) => {
     try {
-      const apiUrl = `https://phim.nguonc.com/api/films/search?keyword=${keyword}&page=${page}`;
-      const movies = await axios.get(apiUrl);
+      const movies = await axios.get(
+        `https://phim.nguonc.com/api/films/search?keyword=${keyword}&page=${page}`
+      );
       return movies.data;
     } catch (error) {
       return [];

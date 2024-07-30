@@ -20,7 +20,7 @@ export const InfiniteScroll = ({
   const handleScroll = useCallback(() => {
     if (
       window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 50
+      document.documentElement.offsetHeight / 2
     ) {
       if (hasMore && !loading) {
         setLoading(true);
@@ -29,7 +29,7 @@ export const InfiniteScroll = ({
           fetchData(page).finally(() => {
             setLoading(false);
           });
-        }, 1000);
+        }, 2000);
 
         setPage((prevPage) => prevPage + 1);
         return () => clearTimeout(timeoutFetch);

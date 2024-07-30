@@ -17,7 +17,21 @@ export default async function DetailScreen({
     }
   };
 
+  const getPhimThinhHanh = async () => {
+    try {
+      const res = await axios.get(
+        "https://phim.nguonc.com/api/films/danh-sach/phim-dang-chieu?page=1&sort_field=new"
+      );
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const movieDetail = await getMovieDetail();
-  console.log(movieDetail.movie);
-  return <Detail movieDetail={movieDetail?.movie} />;
+  const phimThinhHanh = await getPhimThinhHanh();
+  return (
+    <Detail movieDetail={movieDetail?.movie} phimThinhHanh={phimThinhHanh} />
+  );
 }

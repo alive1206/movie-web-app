@@ -7,8 +7,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "../styles/detail.css";
 import { PlusOutlined } from "@ant-design/icons";
+import { Movie } from "@/types";
 
-type Movie = {
+type MovieDetail = {
   id: string;
   name: string;
   slug: string;
@@ -30,10 +31,11 @@ type Movie = {
 };
 
 type Props = {
-  movieDetail: Movie;
+  movieDetail: MovieDetail;
+  phimThinhHanh: Movie;
 };
 
-export const Detail: React.FC<Props> = ({ movieDetail }) => {
+export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
   const [genre, setGenre] = useState<any>([]);
   const [activeTab, setActiveTab] = useState(0);
   const tabCSS =
@@ -57,10 +59,10 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
   return (
     <div>
       <div className="container ">
-        <div className="flex text-white max-md:flex-col max-md:items-center">
+        <div className="flex text-white max-md:flex-col gap-3 max-md:items-center">
           <div className="w-[70%]">
-            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col max-md:items-center">
-              <div className="max-h-auto w-[350px]">
+            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col  max-md:items-center">
+              <div className="max-h-auto max-w-[350px]">
                 <img
                   className="object-cover rounded-md w-full h-full object-center"
                   src={`${movieDetail?.thumb_url}`}
@@ -222,8 +224,32 @@ export const Detail: React.FC<Props> = ({ movieDetail }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center w-[30%]">
-            <h3>Phim sắp chiếu</h3>
+          <div className="flex flex-col items-center w-[30%] max-md:w-full">
+            <div>
+              <h3 className="uppercase border-b-2 mb-3 border-[#A3765D]">
+                Phim đang chiếu
+              </h3>
+            </div>
+            <div className="w-full flex flex-col items-center gap-3">
+              {map(phimThinhHanh.items.slice(0, 5), (movie, index) => (
+                <Link
+                  key={index}
+                  className="cursor-pointer w-[90%] text-gray-300 no-underline bg-[#181818] rounded-md flex gap-3 p-3"
+                  href={`/detail/${movie?.slug}`}
+                  title={movie?.name}
+                >
+                  <img
+                    className="w-[36%] h-auto object-cover duration-500 transition-all transform-translate rounded-md"
+                    src={`${movie?.poster_url}`}
+                    alt={`${movie?.name}`}
+                  />
+                  <div className="text-sm font-medium truncate">
+                    <div className="truncate">{movie?.name}</div>
+                    <div>{formattedDate(movie?.created)}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

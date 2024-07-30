@@ -4,11 +4,11 @@ import { EmptyScreen } from "@/components";
 import { SearchOutlined } from "@ant-design/icons";
 import { GetProps, Input, Pagination } from "antd";
 import { map } from "lodash";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import "../styles/search.css";
 import Link from "next/link";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Movie } from "@/types";
 
 type Props = {
@@ -51,6 +51,7 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             suffix={<SearchOutlined className="text-[#ffffff]" />}
           />
         </div>
+
         <div className="flex flex-wrap justify-center gap-6">
           {movies.items && movies.items.length !== 0 ? (
             map(movies.items, (movie, index) => (
