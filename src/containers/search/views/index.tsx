@@ -53,7 +53,7 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {movies.items && movies.items.length !== 0 ? (
+          {movies && movies.items.length !== 0 ? (
             map(movies.items, (movie, index) => (
               <Link
                 key={index}
@@ -87,7 +87,7 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             </div>
           )}
         </div>
-        {movies.items && movies.items.length !== 0 ? (
+        {movies && movies.items.length !== 0 ? (
           <Pagination
             size="small"
             total={movies.paginate.total_items}

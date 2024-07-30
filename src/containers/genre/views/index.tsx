@@ -46,7 +46,7 @@ export const GenreComponent: React.FC<Props> = ({ slug, data }) => {
           </h3>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
-          {data.items ? (
+          {data ? (
             map(data.items, (movie, index) => (
               <Link
                 key={index}
