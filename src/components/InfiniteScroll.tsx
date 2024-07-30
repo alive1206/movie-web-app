@@ -1,8 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import debounce from "lodash/debounce";
-import { Space, Spin } from "antd"; // Import spin component from Ant Design
+import { Space, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import { throttle } from "lodash";
 
 export const InfiniteScroll = ({
   fetchData,
@@ -15,7 +13,6 @@ export const InfiniteScroll = ({
 }) => {
   const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
-  debounce(() => {});
 
   const handleScroll = useCallback(() => {
     if (
@@ -28,13 +25,13 @@ export const InfiniteScroll = ({
           fetchData(page).finally(() => {
             setLoading(false);
           });
-        }, 3000);
+        }, 2500);
 
         setPage((prevPage) => prevPage + 1);
         return () => clearTimeout(timeoutFetch);
       }
     }
-  }, [fetchData, page]);
+  }, [fetchData, page, hasMore, loading]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -51,7 +48,7 @@ export const InfiniteScroll = ({
             <Spin
               indicator={<LoadingOutlined spin />}
               size="large"
-              className="text-5xl relative z-40  text-[#ffffff]"
+              className="text-5xl relative z-40 text-[#ffffff]"
             />
           </Space>
         </div>
