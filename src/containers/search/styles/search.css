@@ -12,32 +12,3 @@
   background: #414144 !important;
   border-color: #414144;
 }
-
-.poster-container:hover img {
-  transform: scale(1.2);
-}
-
-.ant-pagination-item-link,
-.ant-pagination-item a {
-  color: #fff !important;
-}
-
-.ant-pagination-item-active {
-  background-color: #1773e9 !important;
-  border-color: #1773e9 !important;
-}
-
-.ant-pagination-item:hover {
-  background-color: #1773e9 !important;
-  border-color: #1773e9 !important;
-}
-
-.ant-pagination-options-quick-jumper {
-  color: #ffffff;
-}
-
-.ant-pagination-options-quick-jumper input {
-  background: #414144 !important;
-  color: #ffffff !important;
-  border-color: #414144 !important;
-}
