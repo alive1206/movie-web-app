@@ -17,7 +17,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
   const [showPlay, setShowPlay] = useState<any>(
     Array(phimTop.length).fill(false)
   );
-  console.log(phimTop);
+  // console.log(phimTop);
   const carouselConfig = {
     infinite: true,
     slidesToShow: 2,

@@ -24,12 +24,11 @@ export const InfiniteScroll = ({
     ) {
       if (hasMore && !loading) {
         setLoading(true);
-
         const timeoutFetch = setTimeout(() => {
           fetchData(page).finally(() => {
             setLoading(false);
           });
-        }, 2000);
+        }, 3000);
 
         setPage((prevPage) => prevPage + 1);
         return () => clearTimeout(timeoutFetch);
