@@ -35,7 +35,7 @@ export const InfiniteScroll = ({
         return () => clearTimeout(timeoutFetch);
       }
     }
-  }, [fetchData, hasMore, page]);
+  }, [fetchData, page]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
