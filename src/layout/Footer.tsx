@@ -44,8 +44,8 @@ export const Footer: React.FC<Props> = () => {
             </div>
           </ul>
         </div>
-        <div className="text-center mt-6 border-t py-3 opacity-70">
-          &copy; 2024 Thangnehihi. All rights reserved.
+        <div className="text-center mt-6 border-t py-3 opacity-70 uppercase text-[#e74c3c]">
+          Đây là dự án demo cá nhân chỉ mang tính chất học tập
         </div>
       </div>
     </div>
