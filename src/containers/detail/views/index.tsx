@@ -72,7 +72,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
         setFormat(formattedFormart);
       }
     });
-  }, [movieDetail.category]);
+  }, [movieDetail?.category]);
   return (
     <div>
       <div className="container">
