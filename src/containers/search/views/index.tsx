@@ -53,8 +53,8 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {movies && movies.items.length !== 0 ? (
-            map(movies.items, (movie, index) => (
+          {movies?.items && movies?.items?.length !== 0 ? (
+            map(movies?.items, (movie, index) => (
               <Link
                 key={index}
                 className=" cursor-pointer w-[200px]  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
@@ -87,11 +87,11 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             </div>
           )}
         </div>
-        {movies && movies.items.length !== 0 ? (
+        {movies?.items && movies?.items?.length !== 0 ? (
           <Pagination
             size="small"
-            total={movies.paginate.total_items}
-            pageSize={movies.paginate.items_per_page}
+            total={movies?.paginate?.total_items}
+            pageSize={movies?.paginate?.items_per_page}
             current={page}
             onChange={(page) => router.push(`?keyword=${keyword}&page=${page}`)}
             showSizeChanger={false}

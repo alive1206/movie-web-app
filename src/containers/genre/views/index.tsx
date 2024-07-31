@@ -1,6 +1,6 @@
 "use client";
 
-import { Genre, InfiniteScroll } from "@/components";
+import { Genre } from "@/components";
 import { Movie } from "@/types";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Pagination, Space, Spin } from "antd";
@@ -47,7 +47,7 @@ export const GenreComponent: React.FC<Props> = ({ slug, data }) => {
         </div>
         <div className="flex flex-wrap justify-center gap-6">
           {data ? (
-            map(data.items, (movie, index) => (
+            map(data?.items, (movie, index) => (
               <Link
                 key={index}
                 className=" cursor-pointer w-[200px]  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
@@ -87,8 +87,8 @@ export const GenreComponent: React.FC<Props> = ({ slug, data }) => {
 
         <Pagination
           size="small"
-          total={data.paginate.total_items}
-          pageSize={data.paginate.items_per_page}
+          total={data?.paginate?.total_items}
+          pageSize={data?.paginate?.items_per_page}
           current={page}
           onChange={(page) => router.push(`?page=${page}`)}
           showSizeChanger={false}

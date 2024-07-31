@@ -30,11 +30,11 @@ export const Home: React.FC<Props> = ({
 
   useEffect(() => {
     if (
-      phimMoi.items.length !== 0 &&
-      phimTop.items.length !== 0 &&
-      phimLe.items.length !== 0 &&
-      phimBo.items.length !== 0 &&
-      tvShows.items.length !== 0
+      phimMoi?.items?.length !== 0 &&
+      phimTop?.items?.length !== 0 &&
+      phimLe?.items?.length !== 0 &&
+      phimBo?.items?.length !== 0 &&
+      tvShows?.items?.length !== 0
     ) {
       setLoading(false);
     }

@@ -231,7 +231,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
               </h3>
             </div>
             <div className="w-full flex flex-col items-center gap-3">
-              {map(phimThinhHanh.items.slice(0, 5), (movie, index) => (
+              {map(phimThinhHanh?.items?.slice(0, 5), (movie, index) => (
                 <Link
                   key={index}
                   className="cursor-pointer w-[90%] max-md:w-full text-gray-300 no-underline bg-[#181818] rounded-md flex gap-3 p-3"
