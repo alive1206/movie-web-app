@@ -1,6 +1,7 @@
 "use client";
 
 import { InfiniteScroll } from "@/components";
+import { CaretRightOutlined, HomeOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { map } from "lodash";
 import Link from "next/link";
@@ -70,6 +71,16 @@ export const MoviesComponent: React.FC<Props> = () => {
   return (
     <div>
       <div className="container">
+        <div className="w-full bg-[#222222] px-3 py-2 rounded-md mb-3 flex items-center gap-3 text-white flex-wrap">
+          <Link
+            href={`/`}
+            className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+          >
+            <HomeOutlined /> Trang chủ
+          </Link>
+          <CaretRightOutlined />
+          <div>Phim lẻ</div>
+        </div>
         <div>
           <h3 className="text-white uppercase text-lg border-l-[3px] pl-2 border-[#A3765D] mb-3">
             Phim lẻ

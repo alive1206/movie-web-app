@@ -6,7 +6,11 @@ import { map } from "lodash";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "../styles/detail.css";
-import { PlusOutlined } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  HomeOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { Movie } from "@/types";
 
 type MovieDetail = {
@@ -37,6 +41,8 @@ type Props = {
 
 export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
   const [genre, setGenre] = useState<any>([]);
+  const [country, setCountry] = useState<any>([]);
+  const [format, setFormat] = useState<any>([]);
   const [activeTab, setActiveTab] = useState(0);
   const tabCSS =
     "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
@@ -52,25 +58,46 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
         const formattedGenres =
           genreNames.length > 1 ? genreNames.join(", ") : genreNames[0];
         setGenre(formattedGenres);
-        console.log(genreNames);
+      } else if (group.name === "Quốc gia") {
+        const list = movieDetail.category[key].list;
+        const countryNames = list.map((item: any) => item.name);
+        const formattedCountries =
+          countryNames.length > 1 ? countryNames.join(", ") : countryNames[0];
+        setCountry(formattedCountries);
+      } else if (group.name === "Định dạng") {
+        const list = movieDetail.category[key].list;
+        const formatNames = list.map((item: any) => item.name);
+        const formattedFormart =
+          formatNames.length > 1 ? formatNames.join(", ") : formatNames[0];
+        setFormat(formattedFormart);
       }
     });
   }, [movieDetail.category]);
   return (
     <div>
-      <div className="container ">
-        <div className="flex text-white max-md:flex-col gap-3 max-md:items-center">
+      <div className="container">
+        <div className="flex text-white max-[992px]:flex-col gap-3 max-[992px]:items-center">
           <div className="w-[70%]">
-            <div className="flex gap-6 bg-[#222222] p-3 rounded-sm max-md:flex-col max-md:items-center">
-              <div className="max-h-auto w-[50%] max-[992px]:w-[70%] max-md:w-full">
+            <div className="w-full bg-[#222222] px-3 py-2 rounded-md mb-3 flex items-center gap-3 flex-wrap">
+              <Link
+                href={`/`}
+                className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+              >
+                <HomeOutlined /> Trang chủ
+              </Link>
+              <CaretRightOutlined />
+              <div>{movieDetail?.name}</div>
+            </div>
+            <div className="flex gap-6 bg-[#222222] p-3 rounded-md max-[992px]:flex-col max-[992px]:items-center">
+              <div className="max-[992px]:w-6/12 w-5/12">
                 <img
-                  className="object-cover rounded-md w-full h-full object-center"
+                  className="object-cover md:h-80 w-full mx-auto object-center md:block rounded-md"
                   src={`${movieDetail?.thumb_url}`}
                 />
               </div>
-              <div className="grid grid-rows-2 gap-3 w-full max-md:flex max-md:flex-col">
+              <div className="gap-3 w-full flex flex-col justify-between">
                 <div>
-                  <div className="uppercase font-bold text-xl">
+                  <div className="uppercase font-bold text-xl line-clamp-1">
                     {movieDetail?.name}
                   </div>
                   <div className="text-gray-400 mb-2 line-clamp-1 w-full">
@@ -81,10 +108,18 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                     {formattedDate(movieDetail?.created)}
                   </div>
                   <div className="mt-2">
+                    <span className="text-zinc-500">Quốc gia: </span>
+                    {country}
+                  </div>
+                  <div className="mt-2">
+                    <span className="text-zinc-500">Định dạng: </span>
+                    {format}
+                  </div>
+                  <div className="mt-2">
                     <span className="text-zinc-500">Thời lượng: </span>
                     {movieDetail?.total_episodes} Tập
                   </div>
-                  <div className="font-medium px-2 py-1 bg-[#A3765D] text-[14px] inline-block mt-2 mb-2 rounded-sm">
+                  <div className="font-medium px-2 py-1 bg-[#A3765D] text-[14px] inline-block mt-2 mb-2 rounded-md">
                     {movieDetail?.current_episode} {movieDetail?.language}
                   </div>
                   <div>
@@ -92,7 +127,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                     {genre}
                   </div>
                 </div>
-                <div className="flex gap-2 items-center">
+                <div className="flex flex-wrap gap-2 items-end">
                   <Button
                     type="primary"
                     danger
@@ -107,13 +142,13 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className="w-6 h-6"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
                         ></path>
                       </svg>
@@ -165,7 +200,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                 Diễn viên
               </div>
             </div>
-            <div className="bg-[#222222] rounded-sm">
+            <div className="bg-[#222222] rounded-md">
               <div className="p-3">
                 {activeTab === 0 ? (
                   <>
@@ -224,7 +259,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center w-[30%] max-md:w-full">
+          <div className="flex flex-col items-center w-[30%] max-[992px]:w-full">
             <div>
               <h3 className="uppercase border-b-2 mb-3 border-[#A3765D]">
                 Phim đang chiếu

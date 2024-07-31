@@ -1,7 +1,11 @@
 "use client";
 
 import { EmptyScreen } from "@/components";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  HomeOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import { GetProps, Input, Pagination } from "antd";
 import { map } from "lodash";
 import { useCallback, useMemo, useState } from "react";
@@ -37,6 +41,16 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
   return (
     <div>
       <div className="container text-white">
+        <div className="w-full bg-[#222222] px-3 py-2 rounded-md mb-3 flex items-center gap-3 text-white flex-wrap">
+          <Link
+            href={`/`}
+            className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+          >
+            <HomeOutlined /> Trang chủ
+          </Link>
+          <CaretRightOutlined />
+          <div>Tìm kiếm</div>
+        </div>
         <div className="flex justify-center mb-6">
           <Input
             placeholder="Điền tên phim bạn muốn xem"

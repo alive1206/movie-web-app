@@ -5,7 +5,7 @@ export default async function HomeScreen() {
   const getPhimThinhHanh = async () => {
     try {
       const res = await axios.get(
-        "https://phim.nguonc.com/api/films/danh-sach/phim-dang-chieu?page=1&sort_field=view"
+        "https://phim.nguonc.com/api/films/danh-sach/phim-dang-chieu?page=1"
       );
 
       return res.data;

@@ -25,7 +25,7 @@ export const InfiniteScroll = ({
           fetchData(page).finally(() => {
             setLoading(false);
           });
-        }, 2500);
+        }, 5000);
 
         setPage((prevPage) => prevPage + 1);
         return () => clearTimeout(timeoutFetch);

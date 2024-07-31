@@ -2,7 +2,11 @@
 
 import { Country } from "@/components";
 import { Movie } from "@/types";
-import { LoadingOutlined } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  HomeOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons";
 import { Pagination, Space, Spin } from "antd";
 import { map } from "lodash";
 import Link from "next/link";
@@ -40,6 +44,16 @@ export const CountryComponent: React.FC<Props> = ({ slug, data }) => {
   return (
     <div>
       <div className="container">
+        <div className="w-full bg-[#222222] px-3 py-2 rounded-md mb-3 flex items-center gap-3 text-white flex-wrap">
+          <Link
+            href={`/`}
+            className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+          >
+            <HomeOutlined /> Trang chủ
+          </Link>
+          <CaretRightOutlined />
+          <div>Phim {breadcrumb}</div>
+        </div>
         <div>
           <h3 className="text-white uppercase text-lg border-l-[3px] pl-2 border-[#A3765D] mb-3">
             Phim {breadcrumb}

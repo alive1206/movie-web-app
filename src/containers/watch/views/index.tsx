@@ -1,6 +1,7 @@
 "use client";
 
 import { EmptyScreen } from "@/components";
+import { CaretRightOutlined, HomeOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { isEmpty, map } from "lodash";
 import Link from "next/link";
@@ -54,6 +55,22 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
   return (
     <div>
       <div className="container">
+        <div className="w-full bg-[#222222] px-3 py-2 rounded-md mb-3 flex items-center gap-3 text-white flex-wrap">
+          <Link
+            href={`/`}
+            className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+          >
+            <HomeOutlined /> Trang chủ
+          </Link>
+          <CaretRightOutlined className="text-zinc-400" />
+          <div className="text-zinc-400 hover:text-[#e74c3c] cursor-pointer">
+            {movieDetail?.name}
+          </div>
+          <CaretRightOutlined />
+          <div>
+            Tập <span className="uppercase">{episode}</span>
+          </div>
+        </div>
         <div className="flex justify-center">
           {loading ? (
             <Spin />
