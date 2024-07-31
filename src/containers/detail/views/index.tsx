@@ -48,24 +48,24 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
     "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
 
   useEffect(() => {
-    const categoryKeys = Object.keys(movieDetail.category);
+    const categoryKeys = Object.keys(movieDetail?.category);
 
     categoryKeys.forEach((key) => {
-      const group = movieDetail.category[key].group;
+      const group = movieDetail?.category[key]?.group;
       if (group.name === "Thể loại") {
-        const list = movieDetail.category[key].list;
+        const list = movieDetail?.category[key]?.list;
         const genreNames = list.map((item: any) => item.name);
         const formattedGenres =
           genreNames.length > 1 ? genreNames.join(", ") : genreNames[0];
         setGenre(formattedGenres);
       } else if (group.name === "Quốc gia") {
-        const list = movieDetail.category[key].list;
+        const list = movieDetail?.category[key]?.list;
         const countryNames = list.map((item: any) => item.name);
         const formattedCountries =
           countryNames.length > 1 ? countryNames.join(", ") : countryNames[0];
         setCountry(formattedCountries);
       } else if (group.name === "Định dạng") {
-        const list = movieDetail.category[key].list;
+        const list = movieDetail?.category[key]?.list;
         const formatNames = list.map((item: any) => item.name);
         const formattedFormart =
           formatNames.length > 1 ? formatNames.join(", ") : formatNames[0];
@@ -91,7 +91,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
             <div className="flex gap-6 bg-[#222222] p-3 rounded-md max-[992px]:flex-col max-[992px]:items-center">
               <div className="max-[992px]:w-6/12 w-5/12">
                 <img
-                  className="object-cover md:h-80 w-full mx-auto object-center md:block rounded-md"
+                  className="object-cover md:h-80 w-full mx-auto  rounded-md"
                   src={`${movieDetail?.thumb_url}`}
                 />
               </div>
