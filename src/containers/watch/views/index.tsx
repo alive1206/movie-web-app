@@ -47,7 +47,7 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
       const tempEpisode = movieDetail?.episodes[0]?.items.find(
         (item: any) => item.name.toLowerCase() === episode
       );
-      console.log(tempEpisode);
+
       setCurrentEpisode(tempEpisode);
       setLoading(false);
     }
@@ -102,19 +102,23 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
             </div>
           ) : (
             <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory max-md:justify-center max-md:max-h-[250px]">
-              {map(movieDetail?.episodes[0]?.items, (episode, index) => (
-                <Link
-                  key={index}
-                  href={`/watch/${
-                    movieDetail.slug
-                  }?tap=${episode.name.toLowerCase()}`}
-                  className="no-underline text-white hover:opacity-70"
-                >
-                  <div className="bg-[#e74c3c] rounded px-5 py-1 text-center w-[100px]">
-                    {episode.name}
-                  </div>
-                </Link>
-              ))}
+              {map(movieDetail?.episodes[0]?.items, (movieEpisode, index) => {
+                const isActive =
+                  episode.toString() === movieEpisode.name.toLowerCase();
+                return (
+                  <Link
+                    key={index}
+                    href={`/watch/${
+                      movieDetail.slug
+                    }?tap=${movieEpisode.name.toLowerCase()}`}
+                    className={`no-underline text-white hover:opacity-70 rounded px-5 py-1 text-center w-[100px] ${
+                      isActive ? "bg-[#e74c3c]" : "bg-neutral-700"
+                    }`}
+                  >
+                    {movieEpisode.name}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>

@@ -216,11 +216,9 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                             href={`/watch/${
                               movieDetail.slug
                             }?tap=${episode.name.toLowerCase()}`}
-                            className="no-underline text-white hover:opacity-70"
+                            className="no-underline text-white hover:opacity-70 bg-neutral-700 rounded px-5 py-1 text-center w-[100px]"
                           >
-                            <div className="bg-[#e74c3c] rounded px-5 py-1 text-center w-[100px]">
-                              {episode.name}
-                            </div>
+                            {episode.name}
                           </Link>
                         )
                       )}
