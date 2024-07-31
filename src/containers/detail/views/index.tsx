@@ -86,12 +86,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                 <HomeOutlined /> Trang chủ
               </Link>
               <CaretRightOutlined />
-              <Link
-                href={`/detail/${movieDetail.slug}`}
-                className="no-underline text-zinc-400 hover:text-[#e74c3c]"
-              >
-                {movieDetail?.name}
-              </Link>
+              <div>{movieDetail?.name}</div>
             </div>
             <div className="flex gap-6 bg-[#222222] p-3 rounded-md max-[992px]:flex-col max-[992px]:items-center">
               <div className="max-[992px]:w-6/12 w-5/12">

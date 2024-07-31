@@ -63,9 +63,12 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
             <HomeOutlined /> Trang chủ
           </Link>
           <CaretRightOutlined className="text-zinc-400" />
-          <div className="text-zinc-400 hover:text-[#e74c3c] cursor-pointer">
+          <Link
+            href={`/detail/${movieDetail.slug}`}
+            className="no-underline text-zinc-400 hover:text-[#e74c3c]"
+          >
             {movieDetail?.name}
-          </div>
+          </Link>
           <CaretRightOutlined />
           <div>
             Tập <span className="uppercase">{episode}</span>
