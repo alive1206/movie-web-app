@@ -1,7 +1,7 @@
 import {
-  FacebookOutlined,
-  InstagramOutlined,
-  XOutlined,
+  FacebookFilled,
+  InstagramFilled,
+  TwitterOutlined,
 } from "@ant-design/icons";
 
 type Props = {};
@@ -33,13 +33,23 @@ export const Footer: React.FC<Props> = () => {
             <li className="text-[#e74c3c]">Theo dõi</li>
             <div className="flex gap-3">
               <li>
-                <InstagramOutlined className="text-lg cursor-pointer hover:opacity-70" />
+                <InstagramFilled
+                  className="text-lg cursor-pointer hover:opacity-70"
+                  title="Instagram"
+                />
               </li>
               <li>
-                <XOutlined className="text-lg cursor-pointer hover:opacity-70" />
+                {" "}
+                <TwitterOutlined
+                  className="text-lg cursor-pointer hover:opacity-70"
+                  title="Twitter"
+                />
               </li>
               <li>
-                <FacebookOutlined className="text-lg cursor-pointer hover:opacity-70" />
+                <FacebookFilled
+                  className="text-lg cursor-pointer hover:opacity-70"
+                  title="Facebook"
+                />
               </li>
             </div>
           </ul>

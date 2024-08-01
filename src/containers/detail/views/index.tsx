@@ -214,8 +214,8 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                           <Link
                             key={index}
                             href={`/watch/${
-                              movieDetail.slug
-                            }?tap=${episode.name.toLowerCase()}`}
+                              movieDetail?.slug
+                            }?tap=${episode?.name?.toLowerCase()}`}
                             className="no-underline text-white hover:opacity-70 bg-neutral-700 rounded px-5 py-1 text-center w-[100px]"
                           >
                             {episode.name}
@@ -242,7 +242,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                 )}
                 {activeTab === 2 ? (
                   <>
-                    <span className="uppercase text-zinc-100">Director</span>
+                    <span className="uppercase text-zinc-100">Đạo diễn</span>
                     <div className="text-gray-400 mt-3 mb-3 border-b border-zinc-700 pb-1">
                       {movieDetail?.director}
                     </div>

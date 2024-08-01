@@ -1,10 +1,10 @@
 import { Genre, Country, Year } from "@/components";
 import {
   CaretDownOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
+  FacebookFilled,
+  InstagramFilled,
   MenuOutlined,
-  XOutlined,
+  TwitterOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
 import { map } from "lodash";
@@ -183,14 +183,23 @@ export const Navbar: React.FC<Props> = () => {
             <div className="flex items-center gap-8">
               <ul className="flex list-none gap-5 max-[1200px]:hidden">
                 <li>
-                  <InstagramOutlined className="text-lg cursor-pointer hover:text-[#e74c3c]" />
+                  <InstagramFilled
+                    className="text-lg cursor-pointer hover:text-[#e74c3c]"
+                    title="Instagram"
+                  />
                 </li>
                 <li>
                   {" "}
-                  <XOutlined className="text-lg cursor-pointer hover:text-[#e74c3c]" />
+                  <TwitterOutlined
+                    className="text-lg cursor-pointer hover:text-[#e74c3c]"
+                    title="Twitter"
+                  />
                 </li>
                 <li>
-                  <FacebookOutlined className="text-lg cursor-pointer hover:text-[#e74c3c]" />
+                  <FacebookFilled
+                    className="text-lg cursor-pointer hover:text-[#e74c3c]"
+                    title="Facebook"
+                  />
                 </li>
               </ul>
               <Button type="primary" danger>
