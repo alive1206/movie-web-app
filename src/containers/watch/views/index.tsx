@@ -33,25 +33,17 @@ type Props = {
 };
 
 export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
-  const [currentEpisode, setCurrentEpisode] = useState<any>("full");
+  const [currentEpisode, setCurrentEpisode] = useState<any>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (episode !== "full") {
-      const tempEpisode = movieDetail?.episodes[0]?.items.find(
-        (item: any) => parseInt(item.name) === episode
-      );
-      setCurrentEpisode(tempEpisode);
-      setLoading(false);
-    } else {
-      const tempEpisode = movieDetail?.episodes[0]?.items.find(
-        (item: any) => item.name.toLowerCase() === episode
-      );
-
-      setCurrentEpisode(tempEpisode);
-      setLoading(false);
-    }
+    const tempEpisode = movieDetail?.episodes[0]?.items.find(
+      (item: any) => item.name.toLowerCase() === episode
+    );
+    setCurrentEpisode(tempEpisode);
+    setLoading(false);
   }, [episode]);
+
   return (
     <div>
       <div className="container">
@@ -64,7 +56,7 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
           </Link>
           <CaretRightOutlined className="text-zinc-400" />
           <Link
-            href={`/detail/${movieDetail.slug}`}
+            href={`/detail/${movieDetail?.slug}`}
             className="no-underline text-zinc-400 hover:text-[#e74c3c]"
           >
             {movieDetail?.name}
@@ -105,11 +97,12 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
               {map(movieDetail?.episodes[0]?.items, (movieEpisode, index) => {
                 const isActive =
                   episode.toString() === movieEpisode.name.toLowerCase();
+
                 return (
                   <Link
                     key={index}
                     href={`/watch/${
-                      movieDetail.slug
+                      movieDetail?.slug
                     }?tap=${movieEpisode.name.toLowerCase()}`}
                     className={`no-underline text-white hover:opacity-70 rounded px-5 py-1 text-center w-[100px] ${
                       isActive ? "bg-[#e74c3c]" : "bg-neutral-700"

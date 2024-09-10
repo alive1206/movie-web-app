@@ -1,8 +1,8 @@
 import { formattedDate } from "@/utils";
 import {
-  InfoCircleOutlined,
   PlayCircleFilled,
   PlayCircleTwoTone,
+  StarOutlined,
 } from "@ant-design/icons";
 import { Button, Carousel } from "antd";
 import { map } from "lodash";
@@ -62,11 +62,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
           <div key={index} className="h-96">
             <div className="flex h-[90%] justify-center">
               <Link
-                href={
-                  movie?.current_episode.toLowerCase() === "full"
-                    ? `/watch/${movie?.slug}?tap=full`
-                    : `/watch/${movie?.slug}?tap=1`
-                }
+                href={`/detail/${movie?.slug}`}
                 className="relative cursor-pointer overflow-hidden poster-container"
                 onMouseEnter={() => {
                   setShowPlay((prev: any) =>
@@ -129,13 +125,13 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                       {movie?.quality}
                     </div>
                   </div>
-                  <div className="text-[12px] text-[#999] mb-2 line-clamp-1">
+                  <div className="text-[12px] text-[#999] pb-2 line-clamp-1">
                     {movie?.original_name}
                   </div>
                   <div className="bg-[#222] p-3 opacity-85 ">
                     <div>Trạng thái: {movie?.current_episode}</div>
                     <div>Thời lượng: {movie?.total_episodes} Tập</div>
-                    <div>Ngôn ngữ: {movie?.language}</div>
+                    <div>Ngôn ngữ: Vietsub</div>
                     <div className="line-clamp-3">
                       Nội dung phim: {""}
                       <span
@@ -150,11 +146,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                   <Button
                     type="primary"
                     danger
-                    href={
-                      movie?.current_episode.toLowerCase() === "full"
-                        ? `/watch/${movie?.slug}?tap=full`
-                        : `/watch/${movie?.slug}?tap=1`
-                    }
+                    href={`/detail/${movie?.slug}`}
                     className="px-3 py-5 gap-[4px]"
                     icon={
                       <svg
@@ -177,13 +169,13 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                     Xem phim
                   </Button>
                   <Button
-                    href={`/detail/${movie?.slug}`}
+                    // href={`/detail/${movie?.slug}`}
                     type="default"
                     className="px-3 py-5"
-                    icon={<InfoCircleOutlined />}
+                    icon={<StarOutlined />}
                     iconPosition="start"
                   >
-                    Thông tin chi tiết
+                    Yêu thích
                   </Button>
                 </div>
               </div>

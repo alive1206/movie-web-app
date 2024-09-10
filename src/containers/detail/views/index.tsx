@@ -134,7 +134,9 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                     href={
                       movieDetail?.current_episode.toLowerCase() === "full"
                         ? `/watch/${movieDetail?.slug}?tap=full`
-                        : `/watch/${movieDetail?.slug}?tap=1`
+                        : `/watch/${
+                            movieDetail?.slug
+                          }?tap=${movieDetail?.episodes[0]?.items[0]?.name.toLowerCase()}`
                     }
                     className="no-underline px-3 py-5 font-medium gap-[4px]"
                     icon={
