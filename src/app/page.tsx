@@ -1,6 +1,8 @@
 import { Home } from "@/containers";
 import axios from "axios";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomeScreen() {
   const getPhimThinhHanh = async () => {
     try {

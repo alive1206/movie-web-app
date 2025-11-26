@@ -1,6 +1,8 @@
 import { Detail } from "@/containers";
 import axios from "axios";
 
+export const dynamic = "force-dynamic";
+
 export default async function DetailScreen({
   params,
 }: {
