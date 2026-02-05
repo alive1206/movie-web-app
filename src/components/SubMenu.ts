@@ -72,4 +72,6 @@ export const Year = [
   { id: 27, name: "2022", slug: "2022" },
   { id: 28, name: "2023", slug: "2023" },
   { id: 29, name: "2024", slug: "2024" },
+  { id: 30, name: "2025", slug: "2025" },
+  { id: 31, name: "2026", slug: "2026" },
 ];
