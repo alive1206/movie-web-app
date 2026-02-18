@@ -2,7 +2,7 @@
 
 import { formattedDate } from "@/utils";
 import { Button } from "antd";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "../styles/detail.css";
@@ -155,7 +155,6 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                         ></path>
                       </svg>
                     }
-                    iconPosition="start"
                   >
                     Xem Ngay
                   </Button>
@@ -163,7 +162,6 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                     type="default"
                     className="px-3 py-5 font-medium"
                     icon={<PlusOutlined />}
-                    iconPosition="start"
                   >
                     Theo Dõi
                   </Button>
@@ -210,8 +208,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                       Danh sách tập
                     </span>
                     <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory mt-3 max-md:justify-center max-md:max-h-[250px]">
-                      {map(
-                        movieDetail?.episodes[0]?.items,
+                      {movieDetail?.episodes[0]?.items?.map(
                         (episode, index) => (
                           <Link
                             key={index}
@@ -222,7 +219,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                           >
                             {episode.name}
                           </Link>
-                        )
+                        ),
                       )}
                     </div>
                   </>
@@ -266,7 +263,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
               </h3>
             </div>
             <div className="w-full flex flex-col items-center gap-3">
-              {map(phimThinhHanh?.items?.slice(0, 5), (movie, index) => (
+              {phimThinhHanh?.items?.slice(0, 5)?.map((movie, index) => (
                 <Link
                   key={index}
                   className="cursor-pointer w-[90%] max-md:w-full text-gray-300 no-underline bg-[#181818] rounded-md flex gap-3 p-3"

@@ -8,7 +8,7 @@ import {
   LoadingOutlined,
 } from "@ant-design/icons";
 import { Pagination, Space, Spin } from "antd";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -61,7 +61,7 @@ export const GenreComponent: React.FC<Props> = ({ slug, data }) => {
         </div>
         <div className="flex flex-wrap justify-center gap-6">
           {data ? (
-            map(data?.items, (movie, index) => (
+            data?.items?.map((movie, index) => (
               <Link
                 key={index}
                 className=" cursor-pointer w-[200px]  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"

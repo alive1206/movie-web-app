@@ -3,7 +3,7 @@
 import { EmptyScreen } from "@/components";
 import { CaretRightOutlined, HomeOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
-import { isEmpty, map } from "lodash";
+import { isEmpty } from "es-toolkit/compat";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,7 +38,7 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
 
   useEffect(() => {
     const tempEpisode = movieDetail?.episodes[0]?.items.find(
-      (item: any) => item.name.toLowerCase() === episode
+      (item: any) => item.name.toLowerCase() === episode,
     );
     setCurrentEpisode(tempEpisode);
     setLoading(false);
@@ -94,7 +94,7 @@ export const Watch: React.FC<Props> = ({ movieDetail, episode }) => {
             </div>
           ) : (
             <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory max-md:justify-center max-md:max-h-[250px]">
-              {map(movieDetail?.episodes[0]?.items, (movieEpisode, index) => {
+              {movieDetail?.episodes[0]?.items?.map((movieEpisode, index) => {
                 const isActive =
                   episode.toString() === movieEpisode.name.toLowerCase();
 

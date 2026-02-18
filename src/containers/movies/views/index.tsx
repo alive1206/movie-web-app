@@ -3,7 +3,7 @@
 import { InfiniteScroll } from "@/components";
 import { CaretRightOutlined, HomeOutlined } from "@ant-design/icons";
 import axios from "axios";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -37,7 +37,7 @@ export const MoviesComponent: React.FC<Props> = () => {
   const renderData = () => {
     return (
       <div className="flex flex-wrap justify-center gap-6">
-        {map(data, (movie, index) => (
+        {data?.map((movie, index) => (
           <Link
             key={index}
             className="cursor-pointer w-[200px] relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container fade-slide-in"

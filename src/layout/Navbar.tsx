@@ -7,7 +7,7 @@ import {
   TwitterOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -103,7 +103,7 @@ export const Navbar: React.FC<Props> = () => {
                   }
                 >
                   <div className="px-1 py-1 grid grid-flow-rows grid-cols-3 justify-items-center max-[1200px]:flex max-[1200px]:flex-wrap max-[1200px]:justify-center">
-                    {map(Genre, (genre, index) => (
+                    {Genre.map((genre, index) => (
                       <Link
                         href={`/genre/${genre.slug}`}
                         key={index}
@@ -135,7 +135,7 @@ export const Navbar: React.FC<Props> = () => {
                   }
                 >
                   <div className="px-1 py-1 grid grid-flow-rows grid-cols-3 justify-items-center max-[1200px]:flex max-[1200px]:flex-wrap max-[1200px]:justify-center">
-                    {map(Country, (country, index) => (
+                    {Country.map((country, index) => (
                       <Link
                         href={`/country/${country.slug}`}
                         key={index}
@@ -166,7 +166,7 @@ export const Navbar: React.FC<Props> = () => {
                   }
                 >
                   <div className="px-1 py-1 grid grid-flow-rows grid-cols-3 justify-items-center max-[1200px]:flex max-[1200px]:flex-wrap max-[1200px]:justify-center">
-                    {map(Year, (year, index) => (
+                    {Year.map((year, index) => (
                       <Link
                         href={`/release/${year.slug}`}
                         key={index}

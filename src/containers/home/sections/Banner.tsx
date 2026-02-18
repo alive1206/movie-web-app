@@ -5,7 +5,7 @@ import {
   StarOutlined,
 } from "@ant-design/icons";
 import { Button, Carousel } from "antd";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ type Props = {
 
 export const BannerHome: React.FC<Props> = ({ phimTop }) => {
   const [showPlay, setShowPlay] = useState<any>(
-    Array(phimTop.length).fill(false)
+    Array(phimTop.length).fill(false),
   );
   // console.log(phimTop);
   const carouselConfig = {
@@ -58,7 +58,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
         </h3>
       </div>
       <Carousel {...carouselConfig}>
-        {map(phimTop, (movie, index) => (
+        {phimTop?.map((movie, index) => (
           <div key={index} className="h-96">
             <div className="flex h-[90%] justify-center">
               <Link
@@ -67,15 +67,15 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                 onMouseEnter={() => {
                   setShowPlay((prev: any) =>
                     prev.map((item: any, idx: any) =>
-                      idx === index ? true : item
-                    )
+                      idx === index ? true : item,
+                    ),
                   );
                 }}
                 onMouseLeave={() => {
                   setShowPlay((prev: any) =>
                     prev.map((item: any, idx: any) =>
-                      idx === index ? false : item
-                    )
+                      idx === index ? false : item,
+                    ),
                   );
                 }}
                 title={movie?.name}
@@ -164,7 +164,6 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                         ></path>
                       </svg>
                     }
-                    iconPosition="start"
                   >
                     Xem phim
                   </Button>
@@ -173,7 +172,6 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                     type="default"
                     className="px-3 py-5"
                     icon={<StarOutlined />}
-                    iconPosition="start"
                   >
                     Yêu thích
                   </Button>

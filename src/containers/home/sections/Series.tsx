@@ -6,7 +6,7 @@ import {
   PlayCircleTwoTone,
   RightOutlined,
 } from "@ant-design/icons";
-import { map } from "lodash";
+
 import Link from "next/link";
 import { useRef, useState } from "react";
 
@@ -73,7 +73,7 @@ export const Series: React.FC<Props> = ({ phimBo }) => {
           ref={containerRef}
           style={{ scrollBehavior: "smooth" }}
         >
-          {map(phimBo, (movie, index) => (
+          {phimBo?.map((movie, index) => (
             <Link
               key={index}
               className="snap-center cursor-pointer min-w-[200px] relative  z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
