@@ -6,9 +6,9 @@ export const dynamic = "force-dynamic";
 export default async function DetailScreen({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const getMovieDetail = async () => {
     try {
       const res = await axios.get(`https://phim.nguonc.com/api/film/${slug}`);
@@ -22,7 +22,7 @@ export default async function DetailScreen({
   const getPhimThinhHanh = async () => {
     try {
       const res = await axios.get(
-        "https://phim.nguonc.com/api/films/danh-sach/phim-dang-chieu?page=1&sort_field=new"
+        "https://phim.nguonc.com/api/films/danh-sach/phim-dang-chieu?page=1&sort_field=new",
       );
 
       return res.data;

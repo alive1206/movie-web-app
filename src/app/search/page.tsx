@@ -6,12 +6,13 @@ export const dynamic = "force-dynamic";
 export default async function SearchScreen({
   searchParams,
 }: {
-  searchParams: { [key: string]: string };
+  searchParams: Promise<{ [key: string]: string }>;
 }) {
+  const resolvedSearchParams = await searchParams;
   const getMovies = async (keyword: string, page: number = 1) => {
     try {
       const movies = await axios.get(
-        `https://phim.nguonc.com/api/films/search?keyword=${keyword}&page=${page}`
+        `https://phim.nguonc.com/api/films/search?keyword=${keyword}&page=${page}`,
       );
       return movies.data;
     } catch (error) {
@@ -19,8 +20,10 @@ export default async function SearchScreen({
     }
   };
 
-  const page = searchParams?.page ? parseInt(searchParams.page) : 1;
-  const movies = await getMovies(searchParams?.keyword || "", page);
+  const page = resolvedSearchParams?.page
+    ? parseInt(resolvedSearchParams.page)
+    : 1;
+  const movies = await getMovies(resolvedSearchParams?.keyword || "", page);
 
   return <SearchComponent movies={movies} />;
 }

@@ -7,15 +7,16 @@ export default async function CountryScreen({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams: { [key: string]: string };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
 
   const fetchData = async (slug: string, page: number = 1) => {
     try {
       const res = await axios.get(
-        `https://phim.nguonc.com/api/films/quoc-gia/${slug}?page=${page}`
+        `https://phim.nguonc.com/api/films/quoc-gia/${slug}?page=${page}`,
       );
 
       return res.data;
@@ -23,7 +24,9 @@ export default async function CountryScreen({
       console.log(error);
     }
   };
-  const page = searchParams?.page ? parseInt(searchParams.page) : 1;
+  const page = resolvedSearchParams?.page
+    ? parseInt(resolvedSearchParams.page)
+    : 1;
   const movies = await fetchData(slug, page);
 
   return <CountryComponent slug={slug} data={movies} />;

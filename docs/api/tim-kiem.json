@@ -1,0 +1,47 @@
+{
+  "status": "success",
+  "paginate": {
+    "current_page": 1,
+    "total_page": 1,
+    "total_items": 2,
+    "items_per_page": 10
+  },
+  "items": [
+    {
+      "id": "eyJpdiI6IlV3NEJPMHhvTW9HaUcyYjJETXE5NlE9PSIsInZhbHVlIjoiZE9RbDBPM2dNWTJxSkMwZHNhOUgzQT09IiwibWFjIjoiMDg5MTlhNjFkYjcyNWFkYmQ0MTc2NjUxNWYyZWVkY2Q5M2ZmMzBlYTE3NjJiZGU2MTA0NjJlNGI3MmZmNzdmMCJ9",
+      "name": "Chiến binh vũ trụ: Tái sinh",
+      "slug": "chien-binh-vu-tru-tai-sinh",
+      "original_name": "Universal Soldier: Regeneration",
+      "thumb_url": "https://phim.nguonc.com/public/images/Film/chien-binh-vu-tru-3-thumb.jpg",
+      "poster_url": "https://phim.nguonc.com/public/images/Post/maxresdefault(57).jpg",
+      "created": "2023-08-30T17:17:02.000000Z",
+      "modified": "2023-08-31T15:04:58.000000Z",
+      "description": "<p>Khi bị các thế lực khủng bố đe dọa sẽ gây ra thảm họa hạt nhân, hy vọng duy nhất của thế giới phụ thuộc vào việc thiết lập lại hoạt động của Chiến binh Vũ Trụ đã bị \"vứt xó\" từ lâu Luc Deveraux. Được trang bị vũ khí tối tân và lập trình mới hoàn toàn, Deveraux đã sẵn sàng đối mặt với kẻ thù không đội trời chung của mình từ phần trước trong \"Universal Soldier\", cùng một thế hệ người máy thứ hai mang tên UniSol...</p>",
+      "total_episodes": 1,
+      "current_episode": "FULL",
+      "time": "Đang cập nhật",
+      "quality": "HD",
+      "language": "Vietsub",
+      "director": "John Hyams",
+      "casts": "Dolph Lundgren, Jean-Claude Van Damme, Andrei Arlovski"
+    },
+    {
+      "id": "eyJpdiI6IjdzS0Q0T1Z1UmQzZ1hsNklWWkY5eFE9PSIsInZhbHVlIjoiWExpZ3FPQ3hiUHlpUFlPVUFIT0Exdz09IiwibWFjIjoiNWI5YzI3NTc0YWVhMTQzOWQ4OGY1ZjkzNTYxZTkxNjgzNjVmMzE2NDJhN2YxMzRhYTU0MGFiOTBlNzk2ZDkyNSJ9",
+      "name": "Tái Sinh (phần 1)",
+      "slug": "tai-sinh-phan-1",
+      "original_name": "Regeneration (season 1)",
+      "thumb_url": "https://phim.nguonc.com/public/images/Post/8/jQ4ZPw_4f.jpg",
+      "poster_url": "https://phim.nguonc.com/public/images/Post/8/jQ4ZPw_4f%20-%20Copy.jpg",
+      "created": "2024-05-06T13:47:26.000000Z",
+      "modified": "2024-05-15T14:17:31.000000Z",
+      "description": "Nữ nhà báo He Shan được mời tham dự lễ tưởng niệm Fei Ke, cùng với năm người lạ khác, mỗi người đều không rõ mối liên hệ với Fei Ke. Họ nhanh chóng phát hiện ra rằng tất cả họ đều biết các phiên bản khác nhau của Fei Ke, khiến họ đặt câu hỏi anh ta thực sự là ai. Cùng nhau, họ tìm lại ký ức và dần dần khám phá ra sự thật về Phí Khắc.",
+      "total_episodes": 10,
+      "current_episode": "Hoàn tất (10/10)",
+      "time": "45 Phút/Tập",
+      "quality": "HD",
+      "language": "Vietsub",
+      "director": "Shen Ao",
+      "casts": "Chen Yu Xian, He Liao Lu Yun, Jing Bo Ran, Peng Yang, Zhang Yi Fan, Zhou Yi Ran"
+    }
+  ]
+}

@@ -48,7 +48,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
     "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
 
   useEffect(() => {
-    const categoryKeys = Object.keys(movieDetail?.category);
+    const categoryKeys = Object.keys(movieDetail?.category ?? {});
 
     categoryKeys.forEach((key) => {
       const group = movieDetail?.category[key]?.group;

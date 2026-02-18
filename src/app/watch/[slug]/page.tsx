@@ -7,11 +7,12 @@ export default async function WatchScreen({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams: { [key: string]: string };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }) {
-  const { slug } = params;
-  const episode = searchParams?.tap;
+  const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
+  const episode = resolvedSearchParams?.tap;
 
   const getMovieDetail = async () => {
     try {
