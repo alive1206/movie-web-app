@@ -45,7 +45,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
   const [format, setFormat] = useState<any>([]);
   const [activeTab, setActiveTab] = useState(0);
   const tabCSS =
-    "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded block leading-normal ";
+    "text-white bg-zinc-800 cursor-pointer text-sm font-bold uppercase px-3 py-2 shadow-lg rounded-sm block leading-normal ";
 
   useEffect(() => {
     const categoryKeys = Object.keys(movieDetail?.category ?? {});
@@ -138,7 +138,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                             movieDetail?.slug
                           }?tap=${movieDetail?.episodes[0]?.items[0]?.name.toLowerCase()}`
                     }
-                    className="no-underline px-3 py-5 font-medium gap-[4px]"
+                    className="no-underline px-3 py-5 font-medium gap-1"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +207,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                     <span className="uppercase text-zinc-100">
                       Danh sách tập
                     </span>
-                    <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[500px] scroll-smooth snap-y snap-mandatory mt-3 max-md:justify-center max-md:max-h-[250px]">
+                    <div className="flex flex-wrap gap-3 overflow-y-auto max-h-125 scroll-smooth snap-y snap-mandatory mt-3 max-md:justify-center max-md:max-h-62.5">
                       {movieDetail?.episodes[0]?.items?.map(
                         (episode, index) => (
                           <Link
@@ -215,7 +215,7 @@ export const Detail: React.FC<Props> = ({ movieDetail, phimThinhHanh }) => {
                             href={`/watch/${
                               movieDetail?.slug
                             }?tap=${episode?.name?.toLowerCase()}`}
-                            className="no-underline text-white hover:opacity-70 bg-neutral-700 rounded px-5 py-1 text-center w-[100px]"
+                            className="no-underline text-white hover:opacity-70 bg-neutral-700 rounded-sm px-5 py-1 text-center w-25"
                           >
                             {episode.name}
                           </Link>

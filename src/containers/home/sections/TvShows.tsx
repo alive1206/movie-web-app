@@ -17,7 +17,7 @@ type Props = {
 export const TvShows: React.FC<Props> = ({ tvShows }) => {
   // console.log(tvShows);
   const [showPlay, setShowPlay] = useState<any>(
-    Array(tvShows.length).fill(false)
+    Array(tvShows.length).fill(false),
   );
   const [showButton, setShowButton] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ export const TvShows: React.FC<Props> = ({ tvShows }) => {
     }
   };
   return (
-    <div className="text-[#fff]">
+    <div className="text-white">
       <div>
         <h3 className="uppercase text-lg border-l-[3px] pl-2 border-[#A3765D] mb-3">
           TV Shows
@@ -52,13 +52,13 @@ export const TvShows: React.FC<Props> = ({ tvShows }) => {
         {showButton ? (
           <>
             <button
-              className=" absolute z-10 top-[40%] border-none p-3 max-md:hidden rounded-md rounded-md-r-none cursor-pointer bg-black bg-opacity-80 hover:opacity-70"
+              className=" absolute z-10 top-[40%] border-none p-3 max-md:hidden rounded-md rounded-r-none cursor-pointer bg-black/80 hover:opacity-70"
               onClick={handleScrollLeft}
             >
               <LeftOutlined className="text-white" />
             </button>
             <button
-              className="absolute right-0 z-10 top-[40%] border-none p-3 max-md:hidden rounded-md rounded-md-l-none cursor-pointer bg-black bg-opacity-80 hover:opacity-70"
+              className="absolute right-0 z-10 top-[40%] border-none p-3 max-md:hidden rounded-md rounded-l-none cursor-pointer bg-black/80 hover:opacity-70"
               onClick={handleScrollRight}
             >
               <RightOutlined className="text-white" />
@@ -76,24 +76,24 @@ export const TvShows: React.FC<Props> = ({ tvShows }) => {
           {tvShows?.map((movie, index) => (
             <Link
               key={index}
-              className="snap-center cursor-pointer min-w-[200px] relative  z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
+              className="snap-center cursor-pointer min-w-50 relative  z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
               href={`/detail/${movie?.slug}`}
               title={movie?.name}
             >
               <figure
-                className=" relative w-full h-[290px] overflow-hidden rounded-2xl rounded-b-none"
+                className=" relative w-full h-72.5 overflow-hidden rounded-2xl rounded-b-none"
                 onMouseEnter={() => {
                   setShowPlay((prev: any) =>
                     prev.map((item: any, idx: any) =>
-                      idx === index ? true : item
-                    )
+                      idx === index ? true : item,
+                    ),
                   );
                 }}
                 onMouseLeave={() => {
                   setShowPlay((prev: any) =>
                     prev.map((item: any, idx: any) =>
-                      idx === index ? false : item
-                    )
+                      idx === index ? false : item,
+                    ),
                   );
                 }}
               >

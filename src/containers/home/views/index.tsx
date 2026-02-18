@@ -46,18 +46,18 @@ export const Home: React.FC<Props> = ({
         <div className="relative w-full">
           {!loading ? (
             <div className="flex flex-col gap-6">
-              <BannerHome phimTop={phimTop.items} />
-              <LatestHome phimMoi={phimMoi.items} />
-              <Movies phimLe={phimLe.items} />
-              <Series phimBo={phimBo.items} />
-              <TvShows tvShows={tvShows.items} />
+              <BannerHome phimTop={phimTop?.items} />
+              <LatestHome phimMoi={phimMoi?.items} />
+              <Movies phimLe={phimLe?.items} />
+              <Series phimBo={phimBo?.items} />
+              <TvShows tvShows={tvShows?.items} />
             </div>
           ) : (
             <Space>
               <Spin
                 indicator={<LoadingOutlined spin />}
                 size="large"
-                className="text-5xl absolute top-[50%] left-[50%] text-[#ffffff]"
+                className="text-5xl absolute top-[50%] left-[50%] text-white"
               />
             </Space>
           )}

@@ -16,7 +16,7 @@ export const TvShowsComponent: React.FC<Props> = () => {
   const fetchData = async (page: any) => {
     try {
       const res = await axios.get(
-        `https://phim.nguonc.com/api/films/danh-sach/tv-shows?page=${page}`
+        `https://phim.nguonc.com/api/films/danh-sach/tv-shows?page=${page}`,
       );
       if (res.data.items.length === 0) {
         setHasMore(false);
@@ -40,11 +40,11 @@ export const TvShowsComponent: React.FC<Props> = () => {
         {data?.map((movie, index) => (
           <Link
             key={index}
-            className="cursor-pointer w-[200px] relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container fade-slide-in"
+            className="cursor-pointer w-50 relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container fade-slide-in"
             href={`/detail/${movie?.slug}`}
             title={movie?.name}
           >
-            <figure className=" relative w-full h-[290px] overflow-hidden rounded-2xl rounded-b-none">
+            <figure className=" relative w-full h-72.5 overflow-hidden rounded-2xl rounded-b-none">
               <img
                 className="w-full h-full object-cover duration-500 transition-all transform-translate"
                 src={`${movie?.thumb_url}`}

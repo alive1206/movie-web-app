@@ -28,14 +28,14 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
   const keyword = useMemo(() => search?.get("keyword") || "", [search]);
   const page = useMemo(
     () => (search?.get("page") ? parseInt(search.get("page") as string) : 1),
-    [search]
+    [search],
   );
 
   const onSearch: SearchProps["onSearch"] = useCallback(
     (value: string, _e: any) => {
       router.push(`/search?keyword=${value}`);
     },
-    [value]
+    [value],
   );
 
   return (
@@ -60,9 +60,9 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             onChange={(e) => {
               setValue(e.target.value);
             }}
-            className="bg-[#414144] bg-opacity-50 p-3 w-[400px] text-[#ffffff]"
+            className="bg-[#414144]/50 p-3 w-100 text-white"
             variant="filled"
-            suffix={<SearchOutlined className="text-[#ffffff]" />}
+            suffix={<SearchOutlined className="text-white" />}
           />
         </div>
 
@@ -71,11 +71,11 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             movies?.items?.map((movie, index) => (
               <Link
                 key={index}
-                className=" cursor-pointer w-[200px]  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
+                className=" cursor-pointer w-50  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
                 href={`/detail/${movie?.slug}`}
                 title={movie?.name}
               >
-                <figure className=" relative w-full h-[290px] overflow-hidden rounded-2xl rounded-b-none">
+                <figure className=" relative w-full h-72.5 overflow-hidden rounded-2xl rounded-b-none">
                   <img
                     className="w-full h-full object-cover duration-500 transition-all transform-translate"
                     src={`${movie?.thumb_url}`}
@@ -111,7 +111,7 @@ export const SearchComponent: React.FC<Props> = ({ movies }) => {
             showSizeChanger={false}
             showQuickJumper={true}
             pageSizeOptions={[]}
-            className="flex justify-center mt-6 !bg-opacity-70"
+            className="flex justify-center mt-6"
           />
         ) : (
           <></>

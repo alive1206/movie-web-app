@@ -53,7 +53,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
   return (
     <div>
       <div>
-        <h3 className="text-[#fff] mb-3 uppercase text-xl border-l-[3px] pl-2 border-[#A3765D]">
+        <h3 className="text-white mb-3 uppercase text-xl border-l-[3px] pl-2 border-[#A3765D]">
           Phim thịnh hành
         </h3>
       </div>
@@ -115,13 +115,13 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
               </Link>
 
               {/* PC Screen */}
-              <div className="p-3 text-[#fff] max-w-[250px] grid grid-rows-4 max-[1280px]:hidden">
+              <div className="p-3 text-white max-w-[250px] grid grid-rows-4 max-[1280px]:hidden">
                 <div className="flex flex-col gap-2 row-span-3 max-w-[350px]">
                   <div className="flex gap-3 items-center justify-between">
                     <div className="uppercase text-[#e74c3c] text-base font-bold line-clamp-1">
                       {movie?.name}
                     </div>
-                    <div className="bg-[#e74c3c] rounded p-1 font-medium">
+                    <div className="bg-[#e74c3c] rounded-sm p-1 font-medium">
                       {movie?.quality}
                     </div>
                   </div>
@@ -147,7 +147,7 @@ export const BannerHome: React.FC<Props> = ({ phimTop }) => {
                     type="primary"
                     danger
                     href={`/detail/${movie?.slug}`}
-                    className="px-3 py-5 gap-[4px]"
+                    className="px-3 py-5 gap-1"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -25,7 +25,7 @@ export const CountryComponent: React.FC<Props> = ({ slug, data }) => {
 
   const page = useMemo(
     () => (search?.get("page") ? parseInt(search.get("page") as string) : 1),
-    [search]
+    [search],
   );
 
   const getCountry = () => {
@@ -64,11 +64,11 @@ export const CountryComponent: React.FC<Props> = ({ slug, data }) => {
             data?.items?.map((movie, index) => (
               <Link
                 key={index}
-                className=" cursor-pointer w-[200px]  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
+                className=" cursor-pointer w-50  relative z-0 text-white no-underline bg-[#181818] rounded-2xl poster-container"
                 href={`/detail/${movie?.slug}`}
                 title={movie?.name}
               >
-                <figure className=" relative w-full h-[290px] overflow-hidden rounded-2xl rounded-b-none">
+                <figure className=" relative w-full h-72.5 overflow-hidden rounded-2xl rounded-b-none">
                   <img
                     className="w-full h-full object-cover duration-500 transition-all transform-translate"
                     src={`${movie?.thumb_url}`}
@@ -93,7 +93,7 @@ export const CountryComponent: React.FC<Props> = ({ slug, data }) => {
               <Spin
                 indicator={<LoadingOutlined spin />}
                 size="large"
-                className="text-5xl absolute top-[50%] left-[50%] text-[#ffffff]"
+                className="text-5xl absolute top-[50%] left-[50%] text-white"
               />
             </Space>
           )}
@@ -108,7 +108,7 @@ export const CountryComponent: React.FC<Props> = ({ slug, data }) => {
           showSizeChanger={false}
           showQuickJumper={true}
           pageSizeOptions={[]}
-          className="flex justify-center mt-6 !bg-opacity-70"
+          className="flex justify-center mt-6"
         />
       </div>
     </div>

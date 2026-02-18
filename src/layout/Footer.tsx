@@ -8,7 +8,7 @@ type Props = {};
 
 export const Footer: React.FC<Props> = () => {
   return (
-    <div className="bg-[#04050a] text-[#fff] py-6 px-2">
+    <div className="bg-[#04050a] text-white py-6 px-2">
       <div className="container">
         <div className="flex justify-center gap-6 max-[576px]:flex-col max-[576px]:items-center">
           <ul className="text-white list-none flex flex-col gap-1">

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, JSX } from "react";
 import { Space, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
@@ -48,7 +48,7 @@ export const InfiniteScroll = ({
             <Spin
               indicator={<LoadingOutlined spin />}
               size="large"
-              className="text-5xl relative z-40 text-[#ffffff]"
+              className="text-5xl relative z-40 text-white"
             />
           </Space>
         </div>
